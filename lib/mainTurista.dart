@@ -18,11 +18,6 @@ List<Widget> pantallas = [
 
     return Scaffold(
 
-      appBar: AppBar(
-        title: Text(''),
-        automaticallyImplyLeading: false,
-      ),
-
       body: pantallas[indicePantalla],
         bottomNavigationBar: BottomNavigationBar(
         items: [
@@ -80,8 +75,83 @@ class pantallaMapa extends StatelessWidget {
 class pantallaGrupos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Grupos'),
+    return Column(
+      children: [
+        Stack(
+
+          children: [
+            Container(
+              height: MediaQuery.of(context).size.height * 0.2, 
+              child: Image.asset(
+                'lib/images/grupoTurista.jpg', 
+              fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              ),
+            ),
+        Positioned(
+              bottom: 0.0,
+              left: 0.0,
+              child: Container(
+                child: Text(
+                  'Grupos de Viaje',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0, 
+                  ),
+                ),
+              ),
+            ),
+        
+        ],
+        ),
+        Expanded(
+          child: Column(
+            children: [
+              Row(
+              children: [
+                Expanded(
+
+                child: ElevatedButton(
+                    onPressed: () {
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF78203A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                    ),
+                    child: Text('Crear',style: TextStyle(color: Colors.white),),
+                  )
+                ),
+                  SizedBox(width: 8.0),
+                  Expanded(
+                    child: ElevatedButton(
+                    onPressed: () {
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF78203A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                    ),
+                    child: Text('Unirse',style: TextStyle(color: Colors.white),),
+                  ),
+              
+              )],
+
+            )
+            
+            
+            ],
+          ),
+        ),
+        
+        
+      ]
     );
   }
 }
@@ -89,8 +159,10 @@ class pantallaGrupos extends StatelessWidget {
 class pantallaAjustes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Ajustes'),
+    return Column(
+      children: [Text('Ajustes'),
+
+      ]
     );
   }
 }
