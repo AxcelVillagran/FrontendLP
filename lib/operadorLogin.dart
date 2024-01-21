@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/mainOperador.dart';
 
 class OperadorLogin extends StatefulWidget {
   @override
@@ -7,12 +8,20 @@ class OperadorLogin extends StatefulWidget {
 
 class _OperadorLoginState extends State<OperadorLogin> {
 
+
+  void navigateToMainOperador() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MainOperador()),
+    );
+  }
+
    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.green,
       appBar: AppBar(
-        backgroundColor: Colors.cyan,
+        backgroundColor: Colors.green,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -42,7 +51,17 @@ class _OperadorLoginState extends State<OperadorLogin> {
                     Text("Registrate",style: TextStyle(
               decoration: TextDecoration.underline,))
                     ],
-                )
+                ), ElevatedButton(onPressed: navigateToMainOperador, 
+                child: Text('Iniciar sesión'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color.fromARGB(255, 149, 44, 81),
+            foregroundColor: Colors.white ,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20.0), 
+            ),
+          ),
+        ),
+
                 
               ],
       ),
