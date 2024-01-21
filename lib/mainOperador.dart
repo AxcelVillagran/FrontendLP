@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/grupoOperador.dart';
 
 class MainOperador extends StatefulWidget {
   @override
@@ -77,14 +78,7 @@ class pantallaMapa extends StatelessWidget {
   }
 }
 
-class pantallaGrupos extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Grupos'),
-    );
-  }
-}
+
 
 class pantallaAjustes extends StatelessWidget {
   @override

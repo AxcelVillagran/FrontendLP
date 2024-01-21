@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 
-class ShowOperatorGroup extends StatelessWidget {
+class pantallaGrupos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,14 +11,13 @@ class ShowOperatorGroup extends StatelessWidget {
           children: [
             // Background Image
             Image.asset(
-              'assets/background_image.jpg',  // Replace with your actual image asset
+              'lib/images/bgpicture.jpg',
               fit: BoxFit.cover,
             ),
             // Content
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Text at the top
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
@@ -30,14 +29,11 @@ class ShowOperatorGroup extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Buttons
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // Crear Button
                     ElevatedButton(
                       onPressed: () {
-                        // Action for "Crear" button
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF78203A),
@@ -47,10 +43,8 @@ class ShowOperatorGroup extends StatelessWidget {
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
-                    // Unirse Button
                     ElevatedButton(
                       onPressed: () {
-                        // Action for "Unirse" button
                       },
                       style: ElevatedButton.styleFrom(
                         primary: Color(0xFF78203A),
