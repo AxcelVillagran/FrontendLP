@@ -79,7 +79,6 @@ class pantallaMapa extends StatelessWidget {
 }
 
 
-
 class pantallaAjustes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

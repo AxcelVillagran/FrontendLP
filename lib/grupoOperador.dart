@@ -1,66 +1,85 @@
 import 'package:flutter/material.dart';
 
-
 class pantallaGrupos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Stack(
-          fit: StackFit.expand,
+    return Column(
+      children: [
+        Stack(
+
           children: [
-            // Background Image
-            Image.asset(
-              'lib/images/bgpicture.jpg',
+            Container(
+              height: MediaQuery.of(context).size.height * 0.2, 
+              child: Image.asset(
+                'lib/images/grupoTurista.jpg', 
               fit: BoxFit.cover,
+              width: MediaQuery.of(context).size.width,
+              ),
             ),
-            // Content
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Text(
-                    'Grupos de Operadores',
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+        Positioned(
+              bottom: 0.0,
+              left: 0.0,
+              child: Container(
+                child: Text(
+                  'Grupos de Viaje',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0, 
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF78203A),
-                      ),
-                      child: Text(
-                        'Crear',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                      },
-                      style: ElevatedButton.styleFrom(
-                        primary: Color(0xFF78203A),
-                      ),
-                      child: Text(
-                        'Unirse',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+              ),
             ),
-          ],
+        
+        ],
         ),
-      ),
+        Expanded(
+          child: Column(
+            children: [
+              Row(
+              children: [
+                Expanded(
+
+                child: ElevatedButton(
+                    onPressed: () {
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF78203A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                    ),
+                    child: Text('Crear',style: TextStyle(color: Colors.white),),
+                  )
+                ),
+                  SizedBox(width: 8.0),
+                  Expanded(
+                    child: ElevatedButton(
+                    onPressed: () {
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF78203A),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      padding: EdgeInsets.symmetric(vertical: 12.0),
+                    ),
+                    child: Text('Unirse',style: TextStyle(color: Colors.white),),
+                  ),
+              
+              )],
+
+            )
+            
+            
+            ],
+          ),
+        ),
+        
+        
+      ]
     );
   }
 }

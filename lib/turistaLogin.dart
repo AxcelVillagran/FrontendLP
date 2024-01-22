@@ -1,7 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:frontend/mainTurista.dart';
-
+import 'package:frontend/registerTurista.dart';
 class TuristaLogin extends StatefulWidget {
   @override
   _TuristaLoginState createState() => _TuristaLoginState();
@@ -16,6 +15,13 @@ class _TuristaLoginState extends State<TuristaLogin> {
     );
   }
   
+void navigateToRegisterScreen(){
+  Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => RegisterScreen()),
+    );
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,10 +54,13 @@ class _TuristaLoginState extends State<TuristaLogin> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Aun no tienes una cuenta? "),
-                    Text("Registrate",style: TextStyle(
-              decoration: TextDecoration.underline,)),
-              
-                    ],
+                    GestureDetector(
+                  onTap: navigateToRegisterScreen,
+                  child: Text(
+                    "Registrate",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                    ),),),]
                 ),ElevatedButton(
           onPressed: navigateToMainTurista,
           child: Text('Iniciar sesión'),
