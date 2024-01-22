@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/turistaLogin.dart';
+import 'package:frontend/operadorLogin.dart';
 
 class RegisterScreen extends StatelessWidget {
   @override
@@ -47,6 +47,7 @@ class RegisterScreen extends StatelessWidget {
                   buildTextInput('Nombre'),
                   buildTextInput('Apellido Paterno'),
                   buildTextInput('Apellido Materno'),
+                  buildTextInput('RUC'),
                   buildTextInput('+593', suffixText: 'Verificar', suffixColor: Colors.blue),
                   SizedBox(height: 16.0),
                   ElevatedButton(
@@ -69,7 +70,7 @@ class RegisterScreen extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           //Redirigir a iniciar sesion
-                          navigateToTuristaLogin(context);
+                          navigateToOperadorLogin(context);
                         },
                         child: Text(
                           'Iniciar sesión',
@@ -98,10 +99,10 @@ class RegisterScreen extends StatelessWidget {
       ),
     );
   }
-  void navigateToTuristaLogin(BuildContext context) {
+  void navigateToOperadorLogin(BuildContext context) {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => TuristaLogin()),
+      MaterialPageRoute(builder: (context) => OperadorLogin()),
     );
     }
   }

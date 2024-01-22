@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/mainOperador.dart';
-
+import 'package:frontend/registerOperador.dart';
 class OperadorLogin extends StatefulWidget {
   @override
   _OperadorLoginState createState() => _OperadorLoginState();
@@ -8,7 +8,12 @@ class OperadorLogin extends StatefulWidget {
 
 class _OperadorLoginState extends State<OperadorLogin> {
 
-
+  void navigateToRegisterScreen(){
+  Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => RegisterScreen()),
+    );
+}
   void navigateToMainOperador() {
     Navigator.pushReplacement(
       context,
@@ -48,10 +53,14 @@ class _OperadorLoginState extends State<OperadorLogin> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Aun no tienes una cuenta?"),
-                    Text("Registrate",style: TextStyle(
-              decoration: TextDecoration.underline,))
-                    ],
-                ), ElevatedButton(onPressed: navigateToMainOperador, 
+                    GestureDetector(
+                  onTap: navigateToRegisterScreen,
+                  child: Text(
+                    "Registrate",
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                    ),),),]
+                ),ElevatedButton(onPressed: navigateToMainOperador, 
                 child: Text('Iniciar sesión'),
           style: ElevatedButton.styleFrom(
             backgroundColor: Color.fromARGB(255, 149, 44, 81),
