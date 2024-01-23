@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/main.dart';
 
 class MainTurista extends StatefulWidget {
   @override
@@ -17,29 +18,28 @@ List<Widget> pantallas = [
   Widget build(BuildContext context) {
 
     return Scaffold(
-
       body: pantallas[indicePantalla],
         bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Color(0xFF78203A)),
+            icon: Icon(Icons.home, color: (touristColor)),
             label: 'Inicio',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map, color: Color(0xFF78203A)),
+            icon: Icon(Icons.map, color: (touristColor)),
             label: 'Mapa',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group, color: Color(0xFF78203A)),
+            icon: Icon(Icons.group, color: (touristColor)),
             label: 'Grupos',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings, color: Color(0xFF78203A)),
+            icon: Icon(Icons.settings, color: (touristColor)),
             label: 'Ajustes',
           ),
         ],
         currentIndex: indicePantalla,
-        selectedItemColor: Color(0xFF78203A),
+        selectedItemColor: (touristColor),
         unselectedItemColor: Colors.white,
         backgroundColor: Colors.white,
         onTap: touchItem,
@@ -57,18 +57,26 @@ List<Widget> pantallas = [
 class pantallaInicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Inicio'),
-    );
+    return Column(
+      children: [AppBar(
+        backgroundColor: touristColor,
+        title: Text("Inicio", style: TextStyle(color: Colors.white)),
+      ),
+      Container ()
+    ]);
   }
 }
 
 class pantallaMapa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Mapa'),
-    );
+    return Column(
+      children: [AppBar(
+        backgroundColor: touristColor,
+        title: Text("Mapa", style: TextStyle(color: Colors.white)),
+      ),
+      Container ()
+    ]);
   }
 }
 
@@ -77,6 +85,10 @@ class pantallaGrupos extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        AppBar(
+          backgroundColor: touristColor,
+          title: Text("Grupos de Turistas", style: TextStyle(color: Colors.white)),
+        ),
         Stack(
 
           children: [
@@ -160,8 +172,11 @@ class pantallaAjustes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Text('Ajustes'),
-
+      children: [
+        AppBar(
+          backgroundColor: touristColor,
+          title: Text("Ajustes", style: TextStyle(color: Colors.white)),
+        ),
       ]
     );
   }
