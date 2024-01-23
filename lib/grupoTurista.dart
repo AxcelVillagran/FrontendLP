@@ -13,10 +13,7 @@ class pantallaGrupos extends StatelessWidget {
   }
     return Column(
       children: [
-        AppBar(
-          backgroundColor: touristColor,
-          title: Text("Grupos de Turistas", style: TextStyle(color: Colors.white)),
-        ),
+        
         Stack(
 
           children: [
