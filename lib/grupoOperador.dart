@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "main.dart";
 
 class pantallaGrupos extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class pantallaGrupos extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.2, 
               child: Image.asset(
-                'lib/images/grupoTurista.jpg', 
+                'lib/images/grupoOperador.png', 
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               ),
@@ -21,7 +22,7 @@ class pantallaGrupos extends StatelessWidget {
               left: 0.0,
               child: Container(
                 child: Text(
-                  'Grupos de Viaje',
+                  'Grupos de Operadores',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0, 
@@ -44,7 +45,7 @@ class pantallaGrupos extends StatelessWidget {
 
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF78203A),
+                      backgroundColor: operatorColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
@@ -60,7 +61,7 @@ class pantallaGrupos extends StatelessWidget {
 
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF78203A),
+                      backgroundColor: operatorColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/grupoOperador.dart';
 import 'package:frontend/main.dart';
+import "pantallas.dart";
+import "grupoOperador.dart";
 
 class MainOperador extends StatefulWidget {
   @override
@@ -10,10 +11,10 @@ class MainOperador extends StatefulWidget {
 class _MainOperador extends State<MainOperador> {
 int indicePantalla = 0;
 List<Widget> pantallas = [
-    pantallaInicio(),
-    pantallaMapa(),
+    pantallaInicio(color: operatorColor),
+    pantallaMapa(color: operatorColor),
     pantallaGrupos(),
-    pantallaAjustes(),
+    pantallaAjustes(color: operatorColor),
   ];
 @override
   Widget build(BuildContext context) {
@@ -48,49 +49,10 @@ List<Widget> pantallas = [
     );
 
   }
+
   void touchItem(int index) {
     setState(() {
       indicePantalla = index;
     });
-  }
-
-}
-class pantallaInicio extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [AppBar(
-        backgroundColor: operatorColor,
-        title: Text("Inicio", style: TextStyle(color: Colors.white)),
-      ),
-      Container ()
-    ]);
-  }
-}
-
-class pantallaMapa extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [AppBar(
-        backgroundColor: operatorColor,
-        title: Text("Mapa", style: TextStyle(color: Colors.white)),
-      ),
-      Container ()
-    ]);
-  }
-}
-
-
-class pantallaAjustes extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [AppBar(
-        backgroundColor: operatorColor,
-        title: Text("Ajustes", style: TextStyle(color: Colors.white)),
-      ),
-      Container ()
-    ]);
   }
 }
