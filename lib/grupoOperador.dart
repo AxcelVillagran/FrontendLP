@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import "main.dart";
+import "crearGrupo.dart";
 
 class pantallaGrupos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void navigateToCrearGrupo() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CrearGrupo()),
+      );
+   }
     return Column(
       children: [
         Stack(
-
           children: [
             Container(
               height: MediaQuery.of(context).size.height * 0.2, 
@@ -41,9 +47,7 @@ class pantallaGrupos extends StatelessWidget {
                 Expanded(
 
                 child: ElevatedButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: navigateToCrearGrupo,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: operatorColor,
                       shape: RoundedRectangleBorder(

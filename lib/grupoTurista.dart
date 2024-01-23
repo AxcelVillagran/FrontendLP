@@ -6,11 +6,11 @@ class pantallaGrupos extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     void navigateToCrearGrupo() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CrearGrupo()),
-    );
-}
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CrearGrupo()),
+      );
+  }
     return Column(
       children: [
         AppBar(

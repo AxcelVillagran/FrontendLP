@@ -9,19 +9,16 @@ class MainTurista extends StatefulWidget {
 }
 
 class _MainTurista extends State<MainTurista> {
+  int indicePantalla = 0;
 
-
-int indicePantalla = 0;
-
-@override
-  Widget build(BuildContext context) {
-    
-    List<Widget> pantallas = [
-    pantallaInicio(color: touristColor),
-    pantallaMapa(color: touristColor),
-    pantallaGrupos(),
-    pantallaAjustes(color: touristColor),
-  ];
+  @override
+    Widget build(BuildContext context) {
+      List<Widget> pantallas = [
+      pantallaInicio(color: touristColor),
+      pantallaMapa(color: touristColor),
+      pantallaGrupos(),
+      pantallaAjustes(color: touristColor),
+    ];
     return Scaffold(
       body: pantallas[indicePantalla],
         bottomNavigationBar: BottomNavigationBar(
@@ -57,6 +54,5 @@ int indicePantalla = 0;
       indicePantalla = index;
     });
   }
-
 }
 

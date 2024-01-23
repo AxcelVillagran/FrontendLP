@@ -24,26 +24,59 @@ class pantallaMapa extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [AppBar(
+    return Scaffold(
+      appBar: AppBar(
         backgroundColor: color,
         title: Text("Mapa", style: TextStyle(color: Colors.white)),
       ),
-      Container(
-          height:600,
-          margin: EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            border: Border.all(color: Colors.black),
+      body: Stack(
+        children: [
+          Image.asset(
+            'lib/images/mapa.jpg',
+            width: double.infinity,
+            height: double.infinity,
+            fit: BoxFit.cover,
           ),
-          child: Image.asset(
-                'lib/images/mapa.jpg', 
-              fit: BoxFit.cover,
+          Column(
+            children: [
+              SizedBox(height: 16.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      onPrimary: color,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        side: BorderSide(color: color),
+                      ),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.filter_list),
+                        SizedBox(width: 8.0),
+                        Text('Filtro'),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    child: Text('Actividades Cercanas'),
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      primary: color,
+                      onPrimary: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 16.0),
+            ],
           ),
-        ),
-        Container(
-          
-        ),
-    ]);
+        ],
+      ),
+    );
   }
 }
 
