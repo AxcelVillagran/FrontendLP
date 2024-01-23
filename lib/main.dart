@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'loginScreen.dart';
 
+const touristColor = Color(0xFF78203A);
+const operatorColor = Color.fromARGB(255, 73, 32, 120);
+
 void main() {
   runApp(MyApp());
 }
