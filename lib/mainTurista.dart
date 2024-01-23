@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/crearGrupo.dart';
 
 class MainTurista extends StatefulWidget {
   @override
@@ -6,16 +7,19 @@ class MainTurista extends StatefulWidget {
 }
 
 class _MainTurista extends State<MainTurista> {
+
+
 int indicePantalla = 0;
-List<Widget> pantallas = [
+
+@override
+  Widget build(BuildContext context) {
+    
+    List<Widget> pantallas = [
     pantallaInicio(),
     pantallaMapa(),
     pantallaGrupos(),
     pantallaAjustes(),
   ];
-@override
-  Widget build(BuildContext context) {
-
     return Scaffold(
 
       body: pantallas[indicePantalla],
@@ -73,8 +77,17 @@ class pantallaMapa extends StatelessWidget {
 }
 
 class pantallaGrupos extends StatelessWidget {
+
+  
+  
   @override
   Widget build(BuildContext context) {
+    void navigateToCrearGrupo() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => CrearGrupo()),
+    );
+}
     return Column(
       children: [
         Stack(
@@ -112,9 +125,7 @@ class pantallaGrupos extends StatelessWidget {
                 Expanded(
 
                 child: ElevatedButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: navigateToCrearGrupo,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF78203A),
                       shape: RoundedRectangleBorder(
