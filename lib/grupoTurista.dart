@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "main.dart";
 import "crearGrupo.dart";
+import 'package:frontend/chatScreen.dart';
 
 class pantallaGrupos extends StatelessWidget {
   @override
@@ -11,6 +12,16 @@ class pantallaGrupos extends StatelessWidget {
         MaterialPageRoute(builder: (context) => CrearGrupo()),
       );
   }
+
+  void navigateToChatScreen() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ChatScreen()),
+      );
+  }
+
+
+
     return Column(
       children: [
         
@@ -75,12 +86,68 @@ class pantallaGrupos extends StatelessWidget {
                     ),
                     child: Text('Unirse',style: TextStyle(color: Colors.white),),
                   ),
-              
               )],
+            ),
+              SizedBox(height: 16.0),
+              GestureDetector(
+                onTap: navigateToChatScreen,
+                child: Container(
+                  margin: EdgeInsets.all(16.0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.1,
+                        child: Stack(
+                          children: [
+                            Positioned.fill(
+                              child: Image.asset(
+                                'lib/images/groupSample.jpeg',
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0.0,
+                              right: 16.0,
+                              child: Container(
+                                color: Colors.white,
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Galapagos',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Ultima conversacion', textAlign: TextAlign.left),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text('Justo ahora'),
+                                Text('14/10/23'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
 
-            )
-            
-            
             ],
           ),
         ),
