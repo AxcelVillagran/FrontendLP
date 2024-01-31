@@ -4,6 +4,7 @@ import "crearGrupo.dart";
 import 'package:frontend/chatScreen.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'joinGroup.dart';
 
 class pantallaGrupos extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class pantallaGrupos extends StatefulWidget {
 
 class _pantallaGrupos extends State<pantallaGrupos> {
   
-  //final String apiUrl = "http://192.168.3.4:5000/getTouristGroups";
+  final String apiUrl = "http://192.168.0.17:5000/getTouristGroups";
   List<dynamic> items = [];
 
   void recargarGrupos() {
@@ -47,6 +48,13 @@ class _pantallaGrupos extends State<pantallaGrupos> {
       );
   }
 
+
+    void navigateToJoinGroup(){
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => JoinGroup(rol: 1, background: touristColor, recargarGrupos: recargarGrupos)),
+      );
+    }
   void navigateToChatScreen(destino) {
       Navigator.push(
         context,
@@ -108,9 +116,7 @@ class _pantallaGrupos extends State<pantallaGrupos> {
                   SizedBox(width: 8.0),
                   Expanded(
                     child: ElevatedButton(
-                    onPressed: () {
-
-                    },
+                    onPressed: navigateToJoinGroup,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color(0xFF78203A),
                       shape: RoundedRectangleBorder(

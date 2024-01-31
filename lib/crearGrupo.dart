@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import "main.dart";
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -25,6 +24,7 @@ class _CrearGrupo extends State<CrearGrupo> {
   final TextEditingController codigoInvitacionController = TextEditingController();
   
   Future<void> anadirGrupo() async {
+    final String apiUrl = "http://192.168.100.6:5000/";
 
 
     final Map<String, dynamic> requestData = {
