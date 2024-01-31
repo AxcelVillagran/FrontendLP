@@ -53,8 +53,8 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),),
             Positioned(
-              bottom: 20, // Adjust the distance from the bottom
-              left: 20, // Adjust the distance from the left
+              bottom: 20, 
+              left: 20, 
               child: Text(
                 'Turista',
                 style: TextStyle(

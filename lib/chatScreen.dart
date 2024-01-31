@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/grupoOperador.dart';
 import "crearGrupo.dart";
 class ChatScreen extends StatelessWidget {
+  
+  
+  final String destino;
+  ChatScreen({required this.destino});
   @override
   Widget build(BuildContext context) {
     
@@ -26,7 +31,7 @@ class ChatScreen extends StatelessWidget {
             Container(
               height: MediaQuery.of(context).size.height * 0.2,
               child: Image.asset(
-                'lib/images/groupSample.jpeg', 
+                'lib/images/${destino}.jpeg', 
               fit: BoxFit.cover,
               width: MediaQuery.of(context).size.width,
               ),
@@ -37,7 +42,7 @@ class ChatScreen extends StatelessWidget {
               left: 0.0,
               child: Container(
                 child: Text(
-                  'Galapagos',
+                  destino,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20.0,

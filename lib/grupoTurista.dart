@@ -2,21 +2,55 @@ import 'package:flutter/material.dart';
 import "main.dart";
 import "crearGrupo.dart";
 import 'package:frontend/chatScreen.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
-class pantallaGrupos extends StatelessWidget {
+class pantallaGrupos extends StatefulWidget {
+  @override
+  _pantallaGrupos createState() => _pantallaGrupos();
+}
+
+
+class _pantallaGrupos extends State<pantallaGrupos> {
+  
+  final String apiUrl = "http://192.168.3.4:5000/getTouristGroups";
+  List<dynamic> items = [];
+
+  void recargarGrupos() {
+    obtenerGrupos(); 
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    obtenerGrupos();
+  }
+
+  Future obtenerGrupos() async {
+    final Uri uri = Uri.parse(apiUrl); 
+    final response = await http.get(uri);
+
+    if (response.statusCode == 200) {
+      setState(() {
+        items = json.decode(response.body);
+        print("Items: $items");
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     void navigateToCrearGrupo() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CrearGrupo()),
+        MaterialPageRoute(builder: (context) => CrearGrupo(recargarGrupos: recargarGrupos)),
       );
   }
 
-  void navigateToChatScreen() {
+  void navigateToChatScreen(destino) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ChatScreen()),
+        MaterialPageRoute(builder: (context) => ChatScreen(destino: destino)),
       );
   }
 
@@ -89,15 +123,26 @@ class pantallaGrupos extends StatelessWidget {
               )],
             ),
               SizedBox(height: 16.0),
-              GestureDetector(
-                onTap: navigateToChatScreen,
+              Expanded(
+                child: ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                onTap: () => navigateToChatScreen(items[index]['destino']),
                 child: Container(
                   margin: EdgeInsets.all(16.0),
                   decoration: BoxDecoration(
+                    boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            spreadRadius: 1,
+                            blurRadius: 5,
+                            offset: Offset(0, 3), 
+                          ),
+                        ],
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Column(
+                  ),child: Column(
                     children: [
                       Container(
                         height: MediaQuery.of(context).size.height * 0.1,
@@ -105,7 +150,7 @@ class pantallaGrupos extends StatelessWidget {
                           children: [
                             Positioned.fill(
                               child: Image.asset(
-                                'lib/images/groupSample.jpeg',
+                                'lib/images/${items[index]['destino']}.jpeg',
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -113,10 +158,14 @@ class pantallaGrupos extends StatelessWidget {
                               bottom: 0.0,
                               right: 16.0,
                               child: Container(
-                                color: Colors.white,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  color: Colors.white,
+                                ),
+                                
                                 padding: EdgeInsets.all(8.0),
                                 child: Text(
-                                  'Galapagos',
+                                  items[index]['destino'],
                                   style: TextStyle(
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
@@ -145,6 +194,8 @@ class pantallaGrupos extends StatelessWidget {
                       ),
                     ],
                   ),
+                ),);
+                  },
                 ),
               ),
 
