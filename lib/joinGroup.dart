@@ -62,7 +62,7 @@ class _JoinGroup extends State<JoinGroup>{
 
     final Map<String, dynamic> requestData = {
       "codigo": codigo_grupo, 
-      "userId": 3,
+      "userId": {"idUser":3},
     };
 
       final response = await http.post(
