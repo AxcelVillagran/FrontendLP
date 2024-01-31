@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/mainTurista.dart';
+import "main.dart";
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:frontend/grupoTurista.dart';
 
 class CrearGrupo extends StatefulWidget {
+  final int rol;
+  final Color background;
+  
   final VoidCallback? recargarGrupos;
 
-  CrearGrupo({this.recargarGrupos});
-  CrearGrupo.withoutCallback():recargarGrupos=null;
+  CrearGrupo({required this.rol, required this.background, this.recargarGrupos});
+
+  CrearGrupo.withoutCallback():rol=1,background=Colors.black, recargarGrupos=null;
 
 
   @override
@@ -22,16 +25,16 @@ class _CrearGrupo extends State<CrearGrupo> {
   final TextEditingController codigoInvitacionController = TextEditingController();
   
   Future<void> anadirGrupo() async {
-    final String apiUrl = "http://192.168.3.4:5000/createTouristGroup";
+
 
     final Map<String, dynamic> requestData = {
       "codigo": codigoInvitacionController.text, 
       "destino": destinoController.text,
       "members": [{"idUser":1},{"idUser":2}], 
-      "rol": 1, 
+      "rol": widget.rol,
     };
       final response = await http.post(
-        Uri.parse(apiUrl),
+        Uri.parse(apiUrl+"createTouristGroup"),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(requestData),
       );
@@ -115,7 +118,7 @@ class _CrearGrupo extends State<CrearGrupo> {
           Expanded(child: ElevatedButton(
             onPressed: anadirGrupo,
             style: ElevatedButton.styleFrom(
-              backgroundColor: Color(0xFF78203A),
+              backgroundColor: (widget.background),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),

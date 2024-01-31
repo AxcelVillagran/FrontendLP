@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/grupoOperador.dart';
 import "crearGrupo.dart";
 class ChatScreen extends StatelessWidget {
   
   
   final String destino;
-  ChatScreen({required this.destino});
+  final int rol;
+  final Color background;
+  ChatScreen({required this.destino, required this.rol, required this.background});
   @override
   Widget build(BuildContext context) {
     
@@ -13,14 +14,14 @@ class ChatScreen extends StatelessWidget {
     void navigateToVotaciones() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CrearGrupo()),
+        MaterialPageRoute(builder: (context) => CrearGrupo(rol: rol, background: background)),
       );
     }
     //prueba
     void navigateToItinerario() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CrearGrupo()),
+        MaterialPageRoute(builder: (context) => CrearGrupo(rol: rol, background: background)),
       );
     }
     return Scaffold(

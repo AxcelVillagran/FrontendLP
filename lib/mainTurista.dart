@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:frontend/main.dart';
 import 'package:frontend/grupoTurista.dart';
 import "pantallas.dart";
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+
 class MainTurista extends StatefulWidget {
   @override
   _MainTurista createState() => _MainTurista();

@@ -13,7 +13,7 @@ class pantallaGrupos extends StatefulWidget {
 
 class _pantallaGrupos extends State<pantallaGrupos> {
   
-  final String apiUrl = "http://192.168.3.4:5000/getTouristGroups";
+  //final String apiUrl = "http://192.168.3.4:5000/getTouristGroups";
   List<dynamic> items = [];
 
   void recargarGrupos() {
@@ -27,7 +27,7 @@ class _pantallaGrupos extends State<pantallaGrupos> {
   }
 
   Future obtenerGrupos() async {
-    final Uri uri = Uri.parse(apiUrl); 
+    final Uri uri = Uri.parse(apiUrl+"getTouristGroups"); 
     final response = await http.get(uri);
 
     if (response.statusCode == 200) {
@@ -43,14 +43,14 @@ class _pantallaGrupos extends State<pantallaGrupos> {
     void navigateToCrearGrupo() {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CrearGrupo(recargarGrupos: recargarGrupos)),
+        MaterialPageRoute(builder: (context) => CrearGrupo(rol: 1, background: touristColor, recargarGrupos: recargarGrupos)),
       );
   }
 
   void navigateToChatScreen(destino) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => ChatScreen(destino: destino)),
+        MaterialPageRoute(builder: (context) => ChatScreen(destino: destino, rol:1, background: touristColor,)),
       );
   }
 
