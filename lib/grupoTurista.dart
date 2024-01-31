@@ -14,7 +14,7 @@ class pantallaGrupos extends StatefulWidget {
 
 class _pantallaGrupos extends State<pantallaGrupos> {
   
-  final String apiUrl = "http://192.168.3.4:5000/getTouristGroups/3";
+  final String apiUrl = "http://192.168.3.4:5000/";
   List<dynamic> items = [];
 
   void recargarGrupos() {
@@ -28,7 +28,7 @@ class _pantallaGrupos extends State<pantallaGrupos> {
   }
 
   Future obtenerGrupos() async {
-    final Uri uri = Uri.parse(apiUrl+"getTouristGroups"); 
+    final Uri uri = Uri.parse(apiUrl+"getTouristGroups/3"); 
     final response = await http.get(uri);
 
     if (response.statusCode == 200) {
