@@ -24,13 +24,13 @@ class _CrearGrupo extends State<CrearGrupo> {
   final TextEditingController codigoInvitacionController = TextEditingController();
   
   Future<void> anadirGrupo() async {
-    final String apiUrl = "http://192.168.100.6:5000/";
+    final String apiUrl = "http://192.168.3.4:5000/";
 
 
     final Map<String, dynamic> requestData = {
       "codigo": codigoInvitacionController.text, 
       "destino": destinoController.text,
-      "members": [{"idUser":1},{"idUser":2}], 
+      "members": [{"idUser":1},{"idUser":2},{"idUser":3}], 
       "rol": widget.rol,
     };
       final response = await http.post(

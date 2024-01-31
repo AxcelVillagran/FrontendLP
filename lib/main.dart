@@ -5,7 +5,7 @@ const touristColor = Color(0xFF78203A);
 const operatorColor = Color.fromARGB(255, 73, 32, 120);
 
 //final String apiUrl = "http://192.168.3.4:5000/createTouristGroup";
-final String apiUrl = "http://localhost:5000/";
+final String apiUrl = "http://192.168.3.4:5000/";
 
 void main() {
   runApp(MyApp());

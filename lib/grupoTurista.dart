@@ -14,7 +14,7 @@ class pantallaGrupos extends StatefulWidget {
 
 class _pantallaGrupos extends State<pantallaGrupos> {
   
-  final String apiUrl = "http://192.168.0.17:5000/getTouristGroups";
+  final String apiUrl = "http://192.168.3.4:5000/getTouristGroups/3";
   List<dynamic> items = [];
 
   void recargarGrupos() {

@@ -31,7 +31,7 @@ class _JoinGroup extends State<JoinGroup>{
 
 
     Future<void> getData() async {
-    final url = "http://192.168.100.6:5000/getTouristGroups";
+    final url = "http://192.168.3.4:5000/getTouristGroups";
 
     try {
       final response = await http.get(Uri.parse(url));
@@ -58,7 +58,7 @@ class _JoinGroup extends State<JoinGroup>{
       codigo_grupo = codigoInvitacionController.text;
     }
 
-    final String apiUrl = "http://192.168.100.6:5000/";
+    final String apiUrl = "http://192.168.3.4:5000/";
 
     final Map<String, dynamic> requestData = {
       "codigo": codigo_grupo, 
